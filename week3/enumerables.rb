@@ -32,6 +32,37 @@ class Array
         return new_arr
     end
 
+    def my_any?(&prc)
+      self.my_each do |ele|
+        if prc.call(ele)
+          return true
+        end
+      end
+      false
+    end
+
+    def my_all?(&prc)
+      self.my_each do |ele|
+        if !prc.call(ele)
+          return false
+        end
+      end
+      true
+    end
+
+    def my_flatten
+      if !self.instance_of?(Array) 
+        return [self[0]]
+      end
+      new_arr = []
+
+      self.each do |ele| 
+        temp = [ele]
+        new_arr += temp.my_flatten
+      end
+      return new_arr
+    end
+
 end
 
 # return_value = [1, 2, 3].my_each do |num|
@@ -57,5 +88,10 @@ end
 # p a.my_reject { |num| num == 4 } # => [1, 2, 3]
 
 
-
+# a = [1, 2, 3]
+# p a.my_any? { |num| num > 1 } # => true
+# p a.my_any? { |num| num == 4 } # => false
+# p a.my_all? { |num| num > 1 } # => false
+# p a.my_all? { |num| num < 4 } # => true
   
+p [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten # => [1, 2, 3, 4, 5, 6, 7, 8]
