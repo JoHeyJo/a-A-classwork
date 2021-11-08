@@ -51,19 +51,24 @@ class Array
     end
 
     def my_flatten
-      if !self.instance_of?(Array) 
+      if self.length < 1
         return [self[0]]
       end
       new_arr = []
 
       self.each do |ele| 
-        temp = [ele]
-        new_arr += temp.my_flatten
+        if ele.instance_of?(Array)
+            new_arr += ele.my_flatten
+        else
+            new_arr << ele
+        end
       end
       return new_arr
     end
-
 end
+
+    
+
 
 # return_value = [1, 2, 3].my_each do |num|
 #     puts num
@@ -94,4 +99,4 @@ end
 # p a.my_all? { |num| num > 1 } # => false
 # p a.my_all? { |num| num < 4 } # => true
   
-p [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten # => [1, 2, 3, 4, 5, 6, 7, 8]
+# p [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten # => [1, 2, 3, 4, 5, 6, 7, 8]
