@@ -103,8 +103,8 @@ class Array
 
 end
 
-p [ "a", "b", "c" ].my_reverse   #=> ["c", "b", "a"]
-p [ 1 ].my_reverse               #=> [1]
+# p [ "a", "b", "c" ].my_reverse   #=> ["c", "b", "a"]
+# p [ 1 ].my_reverse               #=> [1]
 
 # a = [ "a", "b", "c", "d" ]
 # p a.my_join         # => "abcd"
