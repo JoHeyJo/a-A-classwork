@@ -28,14 +28,17 @@ class Board
     def populate
         # while empty?
             CARDS.each do |card|
-                row = rand(0...@grid.length)
-                col = rand(0...@grid.length)
-                pos = [row, col]
-                while self[pos] == ' '
-                    self[pos] = card
+                flag = true
+                while flag
+                    row = rand(0...@grid.length)
+                    col = rand(0...@grid.length)
+                    pos = [row, col]
+                    if self[pos] == ' '
+                        self[pos] = card
+                        flag = false
+                    end
                 end
-            # end
-        end
+            end
     end
 
     def won?
