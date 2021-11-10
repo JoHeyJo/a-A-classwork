@@ -11,7 +11,7 @@ class Card
     end
 
     def reveal
-        @face_down = false
+        if  @face_down
     end
 
 

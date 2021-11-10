@@ -15,7 +15,7 @@ class Board
         @grid[row][col] = val
     end
     
-    def print
+    def render
         @grid.each do |row|
             p row
         end
@@ -26,12 +26,26 @@ class Board
     end
 
     def populate
+        # while empty?
             CARDS.each do |card|
-            row = rand(0...@grid.length)
-            col = rand(0...@grid.length)
-            pos = [row, col]
-            self[pos] = card if self[pos] == " "
+                row = rand(0...@grid.length)
+                col = rand(0...@grid.length)
+                pos = [row, col]
+                while self[pos] == ' '
+                    self[pos] = card
+                end
+            # end
         end
+    end
+
+    def won?
+        @grid.each do |row|
+            row.all? { |pos| pos == :X }
+        end
+    end
+
+    def guessed_pos(position)
+        self[position].reveal
     end
 
     
