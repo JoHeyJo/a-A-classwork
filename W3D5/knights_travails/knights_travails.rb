@@ -10,14 +10,15 @@ class KnightPathFinder
     end
 
     def self.valid_moves(pos)
-
+        future_moves = []
         @@possible_moves.each do |move|
             move_0 = pos[0] + move[0] 
             move_1 = pos[1] + move[1]
             if (move_0 >= 0 && move_0 < 8) && (move_1 >= 0 && move_1 < 8)
-                return [move_0, move_1]
+                future_moves << [move_0, move_1]
             end
         end
+        future_moves
     end
         
 
@@ -28,7 +29,13 @@ class KnightPathFinder
     end
 
     def new_move_positions(pos)
-        @considered_positions << KnightPathFinder.valid_moves(pos) if !@considered_positions.include?(KnightPathFinder.valid_moves(pos))
+        # @considered_positions << KnightPathFinder.valid_moves(pos) if !@considered_positions.include?(KnightPathFinder.valid_moves(pos))
+        moves = KnightPathFinder.valid_moves(pos)
+        moves.each do |pos|
+            if !@considered_positions.include?(pos)
+                @considered_positions << pos
+            end
+        end
     end
 
     def find_path(pos)
