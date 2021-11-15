@@ -61,16 +61,18 @@ class PolyTreeNode
 
     def add_child(child_node)
 
-        self.children.each { |child| child.parent = child_node.parent if child != child_node }
+        # self.children.each { |child| child.parent = child_node.parent if child != child_node }
 
-                # return if self.child_node == children.child_node
-        # self.children.each do |child|
-        #     if child == child_node
-        #         child.parent = self
-        #     end
-        # end
-        # parent = child_node(child_node)
-        self.parent
+        #         # return if self.child_node == children.child_node
+        # # self.children.each do |child|
+        # #     if child == child_node
+        # #         child.parent = self
+        # #     end
+        # # end
+        # # parent = child_node(child_node)
+        # self.parent
+
+        child.parent = self
     end
 
 
