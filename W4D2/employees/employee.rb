@@ -5,8 +5,12 @@ class Employee
         @name = name
         @title = title
         @salary = salary   
-        @boss = Manager.new(boss)
-        @boss.employees << self
+        @boss = boss
+    end
+
+    def boss=(boss)
+        # @boss = boss
+        boss.add_employee(self) unless boss == nil 
     end
 
     def bonus(num) 
@@ -21,9 +25,13 @@ end
 class Manager < Employee
     attr_accessor :employees
 
-    def initialize(name)
-        @name = name
+    def initialize(name, title, salary, boss)
+        super
         @employees = []
+    end
+
+    def add_employee(pawn)
+        @employees << pawn
     end
 
 end
