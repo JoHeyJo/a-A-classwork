@@ -3,8 +3,8 @@ require_relative 'piece'
 class Board
     
     def initialize
-        @grid = Array.new(8) {Array.new(8)}
-        @null_piece = NullPiece
+        @grid = Array.new(8) {Array.new(8) { NullPiece.instance } }
+        # @null_piece = NullPiece { NullPiece.instance }
     end
 
     def [](pos)
@@ -19,7 +19,10 @@ class Board
     end
 
     def move_piece(color, start_pos, end_pos)
-
+        raise 'NO PIECE THERE' if start_pos.empty?
+        raise 'invalid destination' if !valid_pos?(end_pos)
+        
+        #null piece to replace 
     end
 
     def valid_pos?(pos)
@@ -30,6 +33,10 @@ class Board
         self[pos] = piece
     end
     
+    def empty_pos?(pos)
+        self[pos].empty?
+    end
+
     def checkmate?(color)
 
     end
