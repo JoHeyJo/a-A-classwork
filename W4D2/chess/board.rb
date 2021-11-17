@@ -4,7 +4,7 @@ class Board
     
     def initialize
         @grid = Array.new(8) {Array.new(8)}
-        @null_piece = NullPiece
+        # @null_piece = NullPiece.new
     end
 
     def [](pos)
@@ -19,7 +19,8 @@ class Board
     end
 
     def move_piece(color, start_pos, end_pos)
-
+        raise 'NO PIECE THERE' if start_pos.empty?
+        raise 'invalid destination' if !valid_pos?(end_pos)
     end
 
     def valid_pos?(pos)
