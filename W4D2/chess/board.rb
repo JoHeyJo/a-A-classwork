@@ -1,10 +1,32 @@
-require_relative 'piece'
+require_relative './pieces/piece'
+require_relative './pieces/null_piece'
+require_relative './pieces/pawn'
+require_relative './pieces/rook_bishop_queen'
+require_relative './pieces/knight_king'
 
 class Board
     
     def initialize
         @grid = Array.new(8) {Array.new(8) { NullPiece.instance } }
-        # @null_piece = NullPiece { NullPiece.instance }
+        @grid[1].map! { |pos| pos = Pawn.new(:white, @grid, pos, :pawn) } 
+        @grid[6].map! { |pos| pos = Pawn.new(:black, @grid, pos, :pawn) }
+            @grid[0][0] = RookBishopQueen.new(:white, @grid, pos, :rook)
+            @grid[0][1] = KnightKing.new(:white, @grid, pos, :knight)
+            @grid[0][2] = RookBishopQueen.new(:white, @grid, pos, :bishop)
+            @grid[0][3] = RookBishopQueen.new(:white, @grid, pos, :queen)
+            @grid[0][4] = KnightKing.new(:white, @grid, pos, :king)
+            @grid[0][5] = RookBishopQueen.new(:white, @grid, pos, :bishop)
+            @grid[0][6] = KnightKing.new(:white, @grid, pos, :knight)
+            @grid[0][7] = RookBishopQueen.new(:white, @grid, pos, :rook)
+
+            @grid[7][0] = RookBishopQueen.new(:black, @grid, pos, :rook)
+            @grid[7][1] = KnightKing.new(:black, @grid, pos, :knight)
+            @grid[7][2] = RookBishopQueen.new(:black, @grid, pos, :bishop)
+            @grid[7][3] = KnightKing.new(:black, @grid, pos, :king)
+            @grid[7][4] = RookBishopQueen.new(:black, @grid, pos, :queen)
+            @grid[7][5] = RookBishopQueen.new(:black, @grid, pos, :bishop)
+            @grid[7][6] = KnightKing.new(:black, @grid, pos, :knight)
+            @grid[7][7] = RookBishopQueen.new(:black, @grid, pos, :rook)
     end
 
     def [](pos)

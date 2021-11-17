@@ -1,6 +1,6 @@
 require_relative 'piece'
 
-class Knight_king < Piece
+class KnightKing < Piece
 
     def symbol
 

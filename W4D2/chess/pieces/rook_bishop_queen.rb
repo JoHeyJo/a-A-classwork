@@ -1,6 +1,6 @@
 require_relative 'piece'
 
-class Rbq < Piece
+class RookBishopQueen < Piece
 
 
     def symbol
