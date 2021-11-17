@@ -34,4 +34,21 @@ class Manager < Employee
         @employees << pawn
     end
 
+    def bonus(multiplier)
+        bfs * multiplier
+
+    end
+
+    def bfs
+        total = 
+        queue = [self]
+
+        until queue.empty?
+            node = queue.shift
+            queue.concat(node.employees)
+            total += node.salary
+        end
+        total 
+    end
+
 end
