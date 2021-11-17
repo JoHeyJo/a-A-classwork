@@ -1,3 +1,4 @@
+require 'singleton'
 class Piece
 
     def initialize(color, board, pos)
@@ -19,5 +20,10 @@ end
 
 
 class NullPiece < Piece 
-    # super()
+    include Singleton 
+    def initialize
+        @color = grey
+        @symbol = :empty
+    end
+    
 end

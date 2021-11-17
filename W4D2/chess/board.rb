@@ -3,8 +3,8 @@ require_relative 'piece'
 class Board
     
     def initialize
-        @grid = Array.new(8) {Array.new(8)}
-        # @null_piece = NullPiece.new
+        @grid = Array.new(8) {Array.new(8) }
+        # @null_piece = NullPiece { NullPiece.instance }
     end
 
     def [](pos)
