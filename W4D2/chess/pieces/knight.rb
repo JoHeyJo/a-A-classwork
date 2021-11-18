@@ -3,9 +3,9 @@ require_relative 'piece'
 class Knight < Piece
     attr_accessor :pos
 
-    def symbol
-        '♘'.colorize(color)
-    end
+    # def symbol
+    #     # '♘'.colorize(color)
+    # end
 
     def move
 

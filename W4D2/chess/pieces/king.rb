@@ -1,11 +1,11 @@
 require_relative 'piece'
 
-class KniKingght < Piece
+class King < Piece
     attr_accessor :pos
 
-    def symbol
-        '🤴'
-    end
+    # def symbol
+    #     # '🤴'.colorize(color)
+    # end
 
     def move
 
@@ -28,6 +28,5 @@ class KniKingght < Piece
         valid_positions
     end
 
-    end
 
 end

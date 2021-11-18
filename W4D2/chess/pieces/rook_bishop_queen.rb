@@ -3,9 +3,9 @@ require_relative 'piece'
 class RookBishopQueen < Piece
 
 
-    def symbol
+    # def symbol
 
-    end
+    # end
 
     private 
     def move_directions

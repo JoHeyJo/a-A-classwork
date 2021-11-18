@@ -4,9 +4,9 @@ class Pawn < Piece
 
     attr_reader :color
 
-    def symbol
-        '♙'
-    end
+    # def symbol
+    #     # '♙'.colorize(color)
+    # end
 
     def moves
         []
@@ -35,9 +35,9 @@ class Pawn < Piece
     def side_attacks
         row, col = pos
         if @grid[row + forward_dir][col + 1] != NullPiece.instance
-           moves << [(row + forward_dir), (col + 1)]
+            moves << [(row + forward_dir), (col + 1)]
         elsif @grid[row + forward_dir][col - 1] != NullPiece.instance
-           moves << [(row + forward_dir), (col - 1)]
+            moves << [(row + forward_dir), (col - 1)]
         end
     end
 
