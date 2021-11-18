@@ -10,23 +10,23 @@ class Board
         @grid = Array.new(8) {Array.new(8) { NullPiece.instance } }
         @grid[1].map! { |pos| pos = Pawn.new(:white, @grid, pos, :pawn) } 
         @grid[6].map! { |pos| pos = Pawn.new(:black, @grid, pos, :pawn) }
-            @grid[0][0] = RookBishopQueen.new(:white, @grid, pos, :rook)
-            @grid[0][1] = KnightKing.new(:white, @grid, pos, :knight)
-            @grid[0][2] = RookBishopQueen.new(:white, @grid, pos, :bishop)
-            @grid[0][3] = RookBishopQueen.new(:white, @grid, pos, :queen)
-            @grid[0][4] = KnightKing.new(:white, @grid, pos, :king)
-            @grid[0][5] = RookBishopQueen.new(:white, @grid, pos, :bishop)
-            @grid[0][6] = KnightKing.new(:white, @grid, pos, :knight)
-            @grid[0][7] = RookBishopQueen.new(:white, @grid, pos, :rook)
+            @grid[0][0] = RookBishopQueen.new(:white, @grid, [0, 0], :rook)
+            @grid[0][1] = KnightKing.new(:white, @grid, [0, 1], :knight)
+            @grid[0][2] = RookBishopQueen.new(:white, @grid, [0, 2], :bishop)
+            @grid[0][3] = RookBishopQueen.new(:white, @grid, [0, 3], :queen)
+            @grid[0][4] = KnightKing.new(:white, @grid, [0, 4], :king)
+            @grid[0][5] = RookBishopQueen.new(:white, @grid, [0, 5], :bishop)
+            @grid[0][6] = KnightKing.new(:white, @grid, [0, 6], :knight)
+            @grid[0][7] = RookBishopQueen.new(:white, @grid, [0, 7], :rook)
 
-            @grid[7][0] = RookBishopQueen.new(:black, @grid, pos, :rook)
-            @grid[7][1] = KnightKing.new(:black, @grid, pos, :knight)
-            @grid[7][2] = RookBishopQueen.new(:black, @grid, pos, :bishop)
-            @grid[7][3] = KnightKing.new(:black, @grid, pos, :king)
-            @grid[7][4] = RookBishopQueen.new(:black, @grid, pos, :queen)
-            @grid[7][5] = RookBishopQueen.new(:black, @grid, pos, :bishop)
-            @grid[7][6] = KnightKing.new(:black, @grid, pos, :knight)
-            @grid[7][7] = RookBishopQueen.new(:black, @grid, pos, :rook)
+            @grid[7][0] = RookBishopQueen.new(:black, @grid, [7, 0], :rook)
+            @grid[7][1] = KnightKing.new(:black, @grid, [7, 1], :knight)
+            @grid[7][2] = RookBishopQueen.new(:black, @grid, [7, 2], :bishop)
+            @grid[7][3] = KnightKing.new(:black, @grid, [7, 3], :king)
+            @grid[7][4] = RookBishopQueen.new(:black, @grid, [7, 4], :queen)
+            @grid[7][5] = RookBishopQueen.new(:black, @grid, [7, 5], :bishop)
+            @grid[7][6] = KnightKing.new(:black, @grid, [7, 6], :knight)
+            @grid[7][7] = RookBishopQueen.new(:black, @grid, [7, 7], :rook)
     end
 
     def [](pos)
@@ -84,3 +84,7 @@ class Board
     end
 
 end
+
+
+b = Board.new
+p b
