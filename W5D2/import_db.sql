@@ -54,7 +54,7 @@ INSERT INTO
 users (fname, lname)
 VALUES
     ('Jack', 'Tomasik'),
-    ('Joannes', 'Figuroa');
+    ('Joannes', 'Figueroa');
 
 INSERT INTO
     questions (title, body, user_id)

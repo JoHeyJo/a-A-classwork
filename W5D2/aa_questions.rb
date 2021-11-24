@@ -35,8 +35,6 @@ class Question
         @body = options['body']
         @user_id = options['user_id']
     end
-
-
 end
 
 class Users
@@ -52,16 +50,8 @@ class Users
             SELECT *
             FROM users
             WHERE id = ?
-
             SQL
-    end
-
-
-    def initialize(options)
-        @id = options['id']
-        @fname = options['fname']
-        @lname = options['lname']
-
+            Users.new(user.first)
     end
 
     def self.find_by_name(fname, lname)
@@ -69,9 +59,38 @@ class Users
             SELECT *
             FROM users
             WHERE fname = ? AND lname = ?
-
             SQL
+            return Users.new(user.first)
     end
 
+    def initialize(options)
+        @id = options['id']
+        @fname = options['fname']
+        @lname = options['lname']
+    end
+end
 
+
+class QuestionFollows
+
+    attr_accessor :id, :question_id, :follower_id
+
+    def self.all
+        data = QuestionsDatabase.instance.execute("SELECT * FROM question_follows")
+        date.map { |datum| QuestionFollows.new(datum) }
+    end
+
+    def initialize(options)
+        @id = options['id']
+        @follower_id = options['id']
+        @question_id = options['id']
+    end
+
+    def self.find_by_id(id)
+        questions_follows = Question.instance.execute(<<-SQL, id)
+        SELECT *
+        FROM question_follows
+        WHERE id = ?
+        SQL
+    end
 end
