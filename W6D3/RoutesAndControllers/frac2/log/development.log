@@ -756,3 +756,304 @@ No template found for UsersController#destroy, rendering head :no_content
 Completed 204 No Content in 404ms (ActiveRecord: 6.6ms)
 
 
+  [1m[35m (8.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7031682822551017995)[0m
+  ↳ bin/rails:9
+  [1m[35m (5.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to UpdateUser (20211202193126)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (54.4ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "email"[0m
+  ↳ db/migrate/20211202193126_update_user.rb:3
+  [1m[35m (9.8ms)[0m  [1m[35mALTER TABLE "users" RENAME COLUMN "name" TO "username"[0m
+  ↳ db/migrate/20211202193126_update_user.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (24.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211202193126"]]
+  ↳ bin/rails:9
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (5.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7031682822551017995)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "//users" for ::1 at 2021-12-02 11:45:16 -0800
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/thiagommoura/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as */*
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - Unknown validator: 'UniqueValidator':
+  app/models/user.rb:2:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:4:in `index'
+
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Thiago"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:10
+  [1m[35m (6.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Joannes"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Jo"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (5.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "Jo"], ["created_at", "2021-12-02 19:54:45.227144"], ["updated_at", "2021-12-02 19:54:45.227144"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "T"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "T"], ["created_at", "2021-12-02 19:54:45.235815"], ["updated_at", "2021-12-02 19:54:45.235815"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+Started POST "//users/?user[username]=T" for ::1 at 2021-12-02 11:59:51 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"T"}}
+Unpermitted parameter: :username
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (6.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (18.0ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2021-12-02 19:59:52.250661"], ["updated_at", "2021-12-02 19:59:52.250661"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (1.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 500 Internal Server Error in 128ms (ActiveRecord: 57.7ms)
+
+
+
+ActiveRecord::NotNullViolation - PG::NotNullViolation: ERROR:  null value in column "username" of relation "users" violates not-null constraint
+DETAIL:  Failing row contains (9, null, 2021-12-02 19:59:52.250661, 2021-12-02 19:59:52.250661).
+: INSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id":
+  app/controllers/users_controller.rb:10:in `create'
+
+Started POST "//users/?username=T" for ::1 at 2021-12-02 12:00:22 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"T"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:34:in `user_params'
+  app/controllers/users_controller.rb:9:in `create'
+
+Started POST "//users/?user[username]=%27T%27" for ::1 at 2021-12-02 12:00:46 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"'T'"}}
+Unpermitted parameter: :username
+  [1m[35m (7.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (14.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (18.6ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2021-12-02 20:00:46.588215"], ["updated_at", "2021-12-02 20:00:46.588215"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (3.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 44.7ms)
+
+
+
+ActiveRecord::NotNullViolation - PG::NotNullViolation: ERROR:  null value in column "username" of relation "users" violates not-null constraint
+DETAIL:  Failing row contains (10, null, 2021-12-02 20:00:46.588215, 2021-12-02 20:00:46.588215).
+: INSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id":
+  app/controllers/users_controller.rb:10:in `create'
+
+Started POST "//users/?user[:username]=%27T%27" for ::1 at 2021-12-02 12:01:44 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{":username"=>"'T'"}}
+Unpermitted parameter: ::username
+  [1m[35m (2.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (21.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (13.8ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2021-12-02 20:01:44.619379"], ["updated_at", "2021-12-02 20:01:44.619379"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (4.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 42.8ms)
+
+
+
+ActiveRecord::NotNullViolation - PG::NotNullViolation: ERROR:  null value in column "username" of relation "users" violates not-null constraint
+DETAIL:  Failing row contains (11, null, 2021-12-02 20:01:44.619379, 2021-12-02 20:01:44.619379).
+: INSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id":
+  app/controllers/users_controller.rb:10:in `create'
+
+Started POST "//users/?users[username]=%27T%27" for ::1 at 2021-12-02 12:02:18 -0800
+Processing by UsersController#create as */*
+  Parameters: {"users"=>{"username"=>"'T'"}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:34:in `user_params'
+  app/controllers/users_controller.rb:9:in `create'
+
+Started POST "//users/?username=%27T%27" for ::1 at 2021-12-02 12:02:59 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"'T'"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:34:in `user_params'
+  app/controllers/users_controller.rb:9:in `create'
+
+Started POST "//users/?username=%27O%27" for ::1 at 2021-12-02 12:03:13 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"'O'"}
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:34:in `user_params'
+  app/controllers/users_controller.rb:9:in `create'
+
+Started POST "//users/?user[username]=%27O%27" for ::1 at 2021-12-02 12:03:32 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"'O'"}}
+Unpermitted parameter: :username
+  [1m[35m (2.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (8.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (18.9ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2021-12-02 20:03:32.632538"], ["updated_at", "2021-12-02 20:03:32.632538"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (8.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 38.9ms)
+
+
+
+ActiveRecord::NotNullViolation - PG::NotNullViolation: ERROR:  null value in column "username" of relation "users" violates not-null constraint
+DETAIL:  Failing row contains (12, null, 2021-12-02 20:03:32.632538, 2021-12-02 20:03:32.632538).
+: INSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id":
+  app/controllers/users_controller.rb:10:in `create'
+
+Started POST "//users/?users[username]=%27O%27" for ::1 at 2021-12-02 12:05:18 -0800
+Processing by UsersController#create as */*
+  Parameters: {"users"=>{"username"=>"'O'"}}
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:34:in `user_params'
+  app/controllers/users_controller.rb:9:in `create'
+
+Started POST "//users/?users[username]=O" for ::1 at 2021-12-02 12:06:25 -0800
+Processing by UsersController#create as */*
+  Parameters: {"users"=>{"username"=>"O"}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:34:in `user_params'
+  app/controllers/users_controller.rb:9:in `create'
+
+Started POST "/users" for ::1 at 2021-12-02 12:10:25 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"O2"}}
+Unpermitted parameter: :username
+  [1m[35m (7.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (36.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (98.5ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2021-12-02 20:10:26.037458"], ["updated_at", "2021-12-02 20:10:26.037458"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (11.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 500 Internal Server Error in 164ms (ActiveRecord: 153.7ms)
+
+
+
+ActiveRecord::NotNullViolation - PG::NotNullViolation: ERROR:  null value in column "username" of relation "users" violates not-null constraint
+DETAIL:  Failing row contains (14, null, 2021-12-02 20:10:26.037458, 2021-12-02 20:10:26.037458).
+: INSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id":
+  app/controllers/users_controller.rb:10:in `create'
+
+Started POST "/users" for ::1 at 2021-12-02 12:10:42 -0800
+Processing by UsersController#create as */*
+  Parameters: {"users"=>{"username"=>"O2"}}
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/users_controller.rb:34:in `user_params'
+  app/controllers/users_controller.rb:9:in `create'
+
+Started POST "/users" for ::1 at 2021-12-02 12:11:03 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"O2"}}
+Unpermitted parameter: :username
+  [1m[35m (10.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (19.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2021-12-02 20:11:03.428981"], ["updated_at", "2021-12-02 20:11:03.428981"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (12.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 44.1ms)
+
+
+
+ActiveRecord::NotNullViolation - PG::NotNullViolation: ERROR:  null value in column "username" of relation "users" violates not-null constraint
+DETAIL:  Failing row contains (15, null, 2021-12-02 20:11:03.428981, 2021-12-02 20:11:03.428981).
+: INSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id":
+  app/controllers/users_controller.rb:10:in `create'
+
+Started POST "/users" for ::1 at 2021-12-02 12:12:09 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"O2"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (6.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "O2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (5.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "O2"], ["created_at", "2021-12-02 20:12:10.202485"], ["updated_at", "2021-12-02 20:12:10.202485"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 200 OK in 136ms (Views: 16.8ms | ActiveRecord: 58.4ms)
+
+
+Started POST "/users" for ::1 at 2021-12-02 12:12:21 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"O"}}
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Exists (27.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "O"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (19.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:10
+Completed 422 Unprocessable Entity in 75ms (Views: 0.8ms | ActiveRecord: 48.8ms)
+
+
