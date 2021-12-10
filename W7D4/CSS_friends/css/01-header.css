@@ -1,0 +1,49 @@
+/* PHASE 1: Header */
+body {
+  font-family : "roboto", san-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  display: block;
+}
+
+.header {
+  display: block;
+  background-color: red;
+  color: white;
+}
+
+.header-logo:hover {
+  background-color: black;
+}
+
+.header-a{
+  display: block;
+  padding: 10px 20px;
+}
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 900px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.header-logo {
+  border-right: 1px solid #ccc;
+}
+
+.header-list { 
+    display: flex;
+    align-items: end;
+}
+
+
+.header-list > li {
+    border-left: 1px solid #ccc;
+}
+
+.header-list:hover {
+  background-color: black;
+}
