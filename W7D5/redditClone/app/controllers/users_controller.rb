@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   
   #find returns undefined - breaks code
   #find_by returns nil if not found
-
+  
   def new 
     @user = User.new 
     render :new
