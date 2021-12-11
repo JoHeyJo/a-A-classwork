@@ -13,11 +13,11 @@
 
   <% if logged_in?  %>
     <form action="<%= session_url %>" method="POST">
-      <input type="hidden" name="_method" action="DELETE">
+      <input type="hidden" name="_method" value="DELETE">
       <input type="hidden"
-      name="authenticity_token"
-      value="<%= form_authenticity_token%>"/>
-        <button>Sign Out</button>
+        name="authenticity_token"
+        value="<%= form_authenticity_token%>"/>
+      <button>Sign Out</button>
     </form>
   <% end %>
 
@@ -25,6 +25,8 @@
     <a href="<%= new_session_url %>">Sign In</a>
     <a href="<%= new_user_url %>">Sign Up</a>
   <% end %>
+
+  <a href="<%= subs_url %>">All The Subs</a>
   
 
     <%= yield %>

@@ -3,5 +3,8 @@ Rails.application.routes.draw do
 
   resources :users 
   resource :session
-  resources :subs
+  resources :subs do 
+    resources :posts, only:[:index]
+  end
+  resources :posts
 end
